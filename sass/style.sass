@@ -1,0 +1,344 @@
+@import "_mixin-text-preset"
+@import "_variables"
+
+body
+    font-family: "Red Hat Display", sans-serif
+    font-optical-sizing: auto
+    display: flex
+    justify-content: center
+    align-items: center
+
+.container
+    max-width: 375px
+    display: flex
+    flex-direction: column
+
+.hero, .users, .about, footer article
+    padding: 0 2rem
+
+
+main
+    flex-grow: 1
+
+.logo
+    padding-top: 48px
+
+    img
+        margin:0 auto
+
+.people
+    margin-top: 64px
+
+.people-left
+    display: none
+
+.people-right
+    display: none
+
+.hero
+    margin-top: 48px
+    display: flex
+    flex-direction: column
+    gap: 24px
+    padding: 0 2rem
+
+
+    h1
+        @include mobile-text-preset-1
+        text-align: center
+        color: $slate-900
+        
+        
+    
+    p
+        @include mobile-text-preset-4
+        text-align: center
+        color: $slate-600
+    
+.links
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    gap: 1rem
+
+    a
+        text-decoration: none
+        color: white
+        border-radius: 29px
+        height: 56px
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: all .25s ease-in
+        @include mobile-text-preset-5
+        
+        &:visited
+            color: white
+            text-decoration: inherit
+        &:hover
+            span
+                color: $cyan-600
+        span
+            color: $cyan-300
+                
+    
+    .links__download
+        width: 193px
+        background-color: $cyan-600
+        &:hover
+            background-color: $cyan-300
+
+
+    .links__about
+        width: 161px
+        background-color: $purple-600
+        &:hover
+            background-color: $purple-300
+
+
+.step
+    margin-top: 2rem
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    .line
+        width: 1px
+        height: 80px
+        background-color: $slate-300
+    .circle
+        padding: 16px 19px
+        border-radius: 50%
+        border: 1px solid $slate-300
+        color: $slate-600
+        @include mobile-text-preset-5
+        
+.users
+    margin-top: 64px
+    display: flex
+    gap: 1rem
+    flex-wrap: wrap
+
+    img
+        border-radius: 8px
+
+.about
+    margin-top: 64px
+    text-align: center
+
+    strong
+        color: $cyan-600
+        text-transform: uppercase
+        @include mobile-text-preset-3
+
+    h2
+        margin-top: 1rem
+        color: $slate-900
+        @include mobile-text-preset-2
+
+    p
+        margin-top: 2rem
+        color: $slate-600
+        @include mobile-text-preset-4
+
+.step-2
+    z-index: 1
+    margin-bottom: -28px
+
+    .circle
+        background-color: white
+
+footer
+    height: 374px
+    background-image: linear-gradient(hsla(192deg, 91%, 37%, .8), hsla(192deg, 91%, 37%, .8)), url("/assets-temp/mobile/image-footer.jpg")
+    background-repeat: no-repeat
+    background-size: 375px 374px
+    padding: 64px 32px
+    color: white
+    text-align: center
+
+    article
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 24px
+
+    h2
+        @include mobile-text-preset-2
+
+    p
+        @include mobile-text-preset-4
+
+    a
+        text-decoration: none
+        color: white
+        border-radius: 29px
+        height: 56px
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 193px
+        background-color: $purple-600
+        transition: all .25s ease-in
+        @include mobile-text-preset-5
+        
+        &:visited
+            color: white
+            text-decoration: inherit
+        
+        &:hover
+            background-color: $purple-300
+            span
+                color:$purple-600
+        span
+            color: $purple-300
+
+
+@media screen and (min-width: 768px)
+    .container
+        max-width: 768px
+    .people
+        img
+            width: 100%
+            height: 100%
+    .hero
+        margin-top: 72px
+        gap: 32px
+        h1
+            @include tablet-text-preset-1
+        p
+            @include tablet-text-preset-4
+    .links
+        flex-direction: row
+        gap: calc(1rem + 1px)
+
+        a
+            @include tablet-text-preset-5
+    .step
+        .circle
+            @include desktop-text-preset-5
+            
+    .step-1
+        margin-top: 120px
+    .about
+        strong
+            @include tablet-text-preset-3
+        h2
+            @include tablet-text-preset-2
+        p
+            @include tablet-text-preset-4
+    footer
+        height: 320px
+        background-image: linear-gradient(hsla(192deg, 91%, 37%, .8), hsla(192deg, 91%, 37%, .8)), url("/assets-temp/tablet/image-footer.jpg")
+        background-size: 768px 324px
+
+        h2
+            @include tablet-text-preset-2
+        p
+            @include tablet-text-preset-4
+        a
+            @include tablet-text-preset-5
+
+@media screen and (min-width:1440px)
+
+    .container
+        min-width: 1440px
+    
+    header
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        grid-template-rows: 110px 1fr
+        grid-template-areas: "logo logo logo" "left hero right"
+        overflow: hidden
+        
+        .logo
+            grid-area: logo
+            padding-top: 80px
+
+        .people
+            display: none
+        .people-left
+            grid-area: left
+            display: block
+            position: relative
+            top: 65px
+        .people-right
+            grid-area: right
+            display: block
+            position: relative
+            top: 120px
+            left: 110px
+
+
+        .hero
+            margin-top: 87px
+            grid-area: hero
+
+            h1
+                @include desktop-text-preset-1
+            p
+                @include desktop-text-preset-4
+    .links
+        a
+            @include desktop-text-preset-5
+
+    .step-1
+        margin-top: 140px
+    .users
+        gap: 2rem
+
+    .about
+        strong
+            @include desktop-text-preset-3
+        h2
+            @include desktop-text-preset-2
+            margin-top: 8px
+            width: 475px
+            padding-left: 19px
+        p
+            @include desktop-text-preset-4
+            width: 544px
+
+
+
+    .users
+        padding-left: 160px 
+        padding-righ: 160px 
+        img
+            width: 256px
+            height: 256px
+    .about
+        width: 544px 
+        margin-right: auto
+        margin-left: auto
+    
+    .step-2
+        margin-top: 72px
+
+    footer
+        height: 312px
+        background-image: linear-gradient(hsla(192deg, 91%, 37%, .85), hsla(192deg, 91%, 37%, .85)), url("/assets-temp/desktop/image-footer.jpg")
+        background-size: 1440px 312px
+
+        article
+            flex-direction: row
+            align-items: center
+            justify-content: space-evenly
+            height: 100%
+            width: 100%
+            text-align: left
+            padding: 0
+            gap: 32px
+
+            h2
+                width: 340px
+                @include desktop-text-preset-2
+
+            p
+                width: 355px
+                @include desktop-text-preset-4
+
+            a
+                @include desktop-text-preset-5
